@@ -127,7 +127,17 @@ public:
         }
         return matriceAdiacenza[indiceSorgente][indiceDestinazione] != INF;
     }
-    
+  // Verifico connettività tra due nodi
+    cout << "Il nodo Milano è connesso al nodo Firenze? " << (grafo.verificaArco("Milano", "Firenze") ? "Sì" : "No") << endl;
+
+    // Trova l'arco con peso minore per un nodo
+    int arcoMinimo = grafo.arcoConPesoMinore(Firenze);
+    if (arcoMinimo != -1) {
+        cout << "L'arco con il peso minimo da Firenze ha peso: " << arcoMinimo <<endl;
+    } else {
+        cout << "Non ci sono archi uscenti da Firenze." << endl;
+    }
+    return 0;
 private:
     // Trova l'indice di un nodo
     int trovaIndice(const T& nodo) const {
